@@ -107,7 +107,7 @@ system-local parameters to be set before the config proper is loaded.")
          (run-shell-command "tmux select-window -t emacs ; echo $?" t)))
 
     (if (eql (elt ret 0) #\0)
-        (run-or-raise *terminal-cmdline* '(:class *terminal-cmdline*))
+        (run-or-raise *terminal-cmdline* `(:class ,*terminal-class*))
         (message "no tmux session found."))))
 (define-key *root-map* (kbd "C-e") "emacs-in-tmux")
 
