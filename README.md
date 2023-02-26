@@ -14,6 +14,8 @@ if you want to change the terminal in use, you can put the following in your
 `local-before.lisp` file:
 
 ``` common-lisp
+(in-package :stumpwm)
+
 (setf *terminal-cmdline* "xterm")
 (setf *terminal-class* "XTerm")
 ```
