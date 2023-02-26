@@ -5,6 +5,8 @@
 ;;; parameters (can be set in local.lisp)
 
 (defparameter *contrib-dir* "~/source/stumpwm-contrib/")
+(defparameter *file-manager-cmdline* "nautilus --no-desktop")
+(defparameter *file-manager-class* "org.gnome.Nautilus")
 (defparameter *slynk-port* 4004)
 (defparameter *terminal-class* "st")
 (defparameter *terminal-cmdline* "st")
@@ -248,7 +250,7 @@ system-local parameters to be set before the config proper is loaded.")
 ;;; file manager
 
 (defcommand file-manager () ()
-  (run-shell-command "nautilus --no-desktop"))
+  (run-or-raise *file-manager-cmdline* `(:class ,*file-manager-class*)))
 
 (define-key *root-map* (kbd "N") "file-manager")
 
