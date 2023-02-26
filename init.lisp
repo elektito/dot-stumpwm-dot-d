@@ -6,6 +6,7 @@
 
 (defparameter *web-browser-cmdline* "google-chrome")
 (defparameter *web-browser-class* "Google-chrome")
+(defparameter *slynk-port* 4004)
 
 ;;; load system-local config file, if it exists.
 
@@ -49,7 +50,7 @@ system-local parameters to be set before the config proper is loaded.")
 ;; run sly-connect in emacs to connect to the server.
 (require :slynk)
 (when *initializing*
-  (slynk:create-server :port 4004
+  (slynk:create-server :port *slynk-port*
                        :dont-close t))
 
 ;;;
