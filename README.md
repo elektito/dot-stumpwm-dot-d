@@ -20,3 +20,6 @@ want to change the terminal in use, you can put the following in your
 
 Notice that you need to set both the command to run and the window class, so
 that `run-or-raise` can work correctly.
+
+The `local.lisp` file is meant to be used on a single computer, and as such it
+is set in the `.gitignore` file so that it's not accidentally committed to git.
