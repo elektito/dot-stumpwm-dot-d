@@ -2,7 +2,7 @@
 
 (in-package :stumpwm)
 
-;;; parameters (can be set in local.lisp)
+;;; parameters (can be set in local-before.lisp)
 
 (defparameter *contrib-dir* "~/source/stumpwm-contrib/")
 (defparameter *file-manager-cmdline* "nautilus --no-desktop")
