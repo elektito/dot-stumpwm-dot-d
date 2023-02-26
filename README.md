@@ -14,8 +14,8 @@ want to change the terminal in use, you can put the following in your
 `local.lisp` file:
 
 ``` common-lisp
-(setq *terminal-cmdline* "xterm")
-(setq *terminal-class* "XTerm")
+(setf *terminal-cmdline* "xterm")
+(setf *terminal-class* "XTerm")
 ```
 
 Notice that you need to set both the command to run and the window class, so
