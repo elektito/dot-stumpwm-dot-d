@@ -5,11 +5,11 @@
 ;;; parameters (can be set in local.lisp)
 
 (defparameter *contrib-dir* "~/source/stumpwm-contrib/")
-(defparameter *web-browser-cmdline* "google-chrome")
-(defparameter *web-browser-class* "Google-chrome")
 (defparameter *slynk-port* 4004)
-(defparameter *terminal-cmdline* "st")
 (defparameter *terminal-class* "st")
+(defparameter *terminal-cmdline* "st")
+(defparameter *web-browser-class* "Google-chrome")
+(defparameter *web-browser-cmdline* "google-chrome")
 
 ;;; load system-local config file, if it exists.
 
