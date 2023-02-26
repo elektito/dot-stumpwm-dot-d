@@ -1,6 +1,8 @@
+# .stumpwm.d
+
 This is my stumpwm configuration. You can clone it in `~/.stumpwm.d`.
 
-# System-Local Configuration
+## System-Local Configuration
 
 On occasion, I need to use slightly different parameters on my different
 computers. For example, on Ubuntu the Google Chrome executable is named
