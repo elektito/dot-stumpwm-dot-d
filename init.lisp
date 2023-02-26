@@ -19,7 +19,7 @@
   "This file is loaded at the beginning of init.lisp, allowing for some
 system-local parameters to be set before the config proper is loaded.")
 
-(defvar *local-after-config-file* "~/.stumpwm.d/loacl-after.lisp"
+(defvar *local-after-config-file* "~/.stumpwm.d/local-after.lisp"
   "This file is loaded at the end of init.lisp, allowing for some
 system-local changes to be made (like changing key bindings, etc).")
 
