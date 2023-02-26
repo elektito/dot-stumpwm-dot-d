@@ -288,9 +288,9 @@ system-local changes to be made (like changing key bindings, etc).")
 
 ;;;
 
-;; switch keyboard layouts between English and Persian by pressing
-;; both shift keys. CAPS LOCK LED will be the keyboard layout
-;; indicator.
+;; - switch keyboard layouts between English and Persian by pressing both shift
+;;   keys.
+;; - swap ctrl and alt keys
 (run-shell-command
  "setxkbmap \"pc+us+ir:2+inet(evdev)+group(shifts_toggle)\" -option ctrl:swap_lalt_lctl -option ctrl:swap_ralt_rctl"
  t)
