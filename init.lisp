@@ -4,6 +4,7 @@
 
 ;;; parameters (can be set in local.lisp)
 
+(defparameter *contrib-dir* "~/source/stumpwm-contrib/")
 (defparameter *web-browser-cmdline* "google-chrome")
 (defparameter *web-browser-class* "Google-chrome")
 (defparameter *slynk-port* 4004)
@@ -28,7 +29,7 @@ system-local parameters to be set before the config proper is loaded.")
 (defun cat (&rest strings) "A shortcut for (concatenate 'string foo bar)."
   (apply 'concatenate 'string strings))
 
-(set-module-dir "~/source/stumpwm-contrib/")
+(set-module-dir *contrib-dir*)
 
 ;;;
 
