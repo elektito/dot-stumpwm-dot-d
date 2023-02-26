@@ -7,6 +7,8 @@
 (defparameter *web-browser-cmdline* "google-chrome")
 (defparameter *web-browser-class* "Google-chrome")
 (defparameter *slynk-port* 4004)
+(defparameter *terminal-cmdline* "st")
+(defparameter *terminal-class* "st")
 
 ;;; load system-local config file, if it exists.
 
@@ -57,12 +59,12 @@ system-local parameters to be set before the config proper is loaded.")
 
 (defcommand terminal () ()
   "Start terminal or switch to it, if it is already running."
-  (run-or-raise "st" '(:class "st")))
+  (run-or-raise *terminal-cmdline* `(:class ,*terminal-class*)))
 (define-key *root-map* (kbd "C-c") "terminal")
 
 (defcommand new-terminal () ()
   "Start terminal or switch to it, if it is already running."
-  (run-shell-command "st"))
+  (run-shell-command *terminal-cmdline*))
 (define-key *root-map* (kbd "c") "new-terminal")
 
 ;;; Web browser
@@ -104,7 +106,7 @@ system-local parameters to be set before the config proper is loaded.")
          (run-shell-command "tmux select-window -t emacs ; echo $?" t)))
 
     (if (eql (elt ret 0) #\0)
-        (run-or-raise "st" '(:class "st"))
+        (run-or-raise *terminal-cmdline* '(:class *terminal-cmdline*))
         (message "no tmux session found."))))
 (define-key *root-map* (kbd "C-e") "emacs-in-tmux")
 
