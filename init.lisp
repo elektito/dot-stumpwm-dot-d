@@ -15,12 +15,16 @@
 
 ;;; load system-local config file, if it exists.
 
-(defvar *local-config-file* "~/.stumpwm.d/local.lisp"
+(defvar *local-before-config-file* "~/.stumpwm.d/local-before.lisp"
   "This file is loaded at the beginning of init.lisp, allowing for some
 system-local parameters to be set before the config proper is loaded.")
 
-(when (probe-file *local-config-file*)
-  (load *local-config-file*))
+(defvar *local-after-config-file* "~/.stumpwm.d/loacl-after.lisp"
+  "This file is loaded at the end of init.lisp, allowing for some
+system-local changes to be made (like changing key bindings, etc).")
+
+(when (probe-file *local-before-config-file*)
+  (load *local-before-config-file*))
 
 ;;;
 
@@ -293,3 +297,8 @@ system-local parameters to be set before the config proper is loaded.")
 
 ;; make the mouse pointer an arrow
 (run-shell-command "xsetroot -cursor_name left_ptr")
+
+;;;
+
+(when (probe-file *local-after-config-file*)
+  (load *local-after-config-file*))
