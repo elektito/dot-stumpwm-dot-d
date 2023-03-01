@@ -10,6 +10,7 @@
 (defparameter *slynk-port* 4004)
 (defparameter *terminal-class* "st")
 (defparameter *terminal-cmdline* "st")
+(defparameter *wallpaper-file* nil)
 (defparameter *web-browser-class* "Google-chrome")
 (defparameter *web-browser-cmdline* "google-chrome")
 
@@ -297,6 +298,10 @@ system-local changes to be made (like changing key bindings, etc).")
 
 ;; make the mouse pointer an arrow
 (run-shell-command "xsetroot -cursor_name left_ptr")
+
+;; set desktop wallpaper
+(when (and *initializing* *wallpaper-file*)
+  (run-shell-command (format nil "feh --bg-scale ~a" *wallpaper-file*)))
 
 ;;;
 
