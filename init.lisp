@@ -13,6 +13,7 @@
 (defparameter *wallpaper-file* nil)
 (defparameter *web-browser-class* "Google-chrome")
 (defparameter *web-browser-cmdline* "google-chrome")
+(defparameter *force-fullscreen-classes* '("st"))
 
 ;;; load system-local config file, if it exists.
 
@@ -314,3 +315,22 @@ system-local changes to be made (like changing key bindings, etc).")
 (setf *transient-border-width* 0)
 (setf *normal-border-width* 0)
 (setf *window-border-style* :none)
+
+;;; force full-screen any window with a class in *force-fullscreen-classes*.
+;;; this is useful for forcing terminal windows, for example, to go fullscreen,
+;;; since they might have some pixels empty around them due to their size
+;;; defaulting to a multiple of their font size.
+
+(defun any (values)
+  "return true if any of the values is true."
+  (if (null values)
+      t
+      (or (car values) (any (cdr values)))))
+
+(defun fullscreen-if-needed (window)
+  (when (any (mapcar (lambda (class)
+                       (window-matches-properties-p window :class class))
+                     *force-fullscreen-classes*))
+    (update-fullscreen window 2)))
+
+(add-hook *new-window-hook* 'fullscreen-if-needed)
