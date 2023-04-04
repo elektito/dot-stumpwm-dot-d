@@ -307,3 +307,10 @@ system-local changes to be made (like changing key bindings, etc).")
 
 (when (probe-file *local-after-config-file*)
   (load *local-after-config-file*))
+
+
+;;; remove all borders
+(setf *maxsize-border-width* 0)
+(setf *transient-border-width* 0)
+(setf *normal-border-width* 0)
+(setf *window-border-style* :none)
