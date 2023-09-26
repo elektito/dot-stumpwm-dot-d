@@ -267,6 +267,13 @@ system-local changes to be made (like changing key bindings, etc).")
 (define-key *top-map* (kbd "XF86MonBrightnessUp") "backlight-increase")
 (define-key *top-map* (kbd "XF86MonBrightnessDown") "backlight-decrease")
 
+;; dmenu
+
+(defcommand dmenu-run () ()
+  (run-shell-command "dmenu_run -i -b -fn 'DejaVu Sans Mono:pixelsize=24:antialias=true:autohint=true'"))
+
+(define-key *root-map* (kbd "d") "dmenu-run")
+
 ;;; initialize groups
 
 (when *initializing*
