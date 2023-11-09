@@ -334,10 +334,13 @@ system-local changes to be made (like changing key bindings, etc).")
       t
       (or (car values) (any (cdr values)))))
 
-(defun fullscreen-if-needed (window)
-  (when (any (mapcar (lambda (class)
-                       (window-matches-properties-p window :class class))
-                     *force-fullscreen-classes*))
-    (update-fullscreen window 2)))
-
-(add-hook *new-window-hook* 'fullscreen-if-needed)
+;;
+;; this was breaking tiling!
+;;
+;;(defun fullscreen-if-needed (window)
+;;  (when (any (mapcar (lambda (class)
+;;                       (window-matches-properties-p window :class class))
+;;                     *force-fullscreen-classes*))
+;;    (update-fullscreen window 2)))
+;;
+;;(add-hook *new-window-hook* 'fullscreen-if-needed)
