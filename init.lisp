@@ -300,14 +300,13 @@ system-local changes to be made (like changing key bindings, etc).")
 (when (and *initializing* *wallpaper-file*)
   (run-shell-command (format nil "feh --bg-scale ~a" *wallpaper-file*)))
 
-;;;
-
-(when (probe-file *local-after-config-file*)
-  (load *local-after-config-file*))
-
-
 ;;; remove all borders
 (setf *maxsize-border-width* 0)
 (setf *transient-border-width* 0)
 (setf *normal-border-width* 0)
 (setf *window-border-style* :none)
+
+;;;
+
+(when (probe-file *local-after-config-file*)
+  (load *local-after-config-file*))
