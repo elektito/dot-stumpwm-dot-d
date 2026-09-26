@@ -107,17 +107,7 @@ system-local changes to be made (like changing key bindings, etc).")
 
 ;;;
 
-(defcommand emacs-in-tmux () ()
-  "attempts to switch to an emacs instance run in a tmux window
-   called 'emacs', itself inside a st instance."
-
-  (let ((ret
-         (run-shell-command "tmux select-window -t emacs ; echo $?" t)))
-
-    (if (eql (elt ret 0) #\0)
-        (run-or-raise *terminal-cmdline* `(:class ,*terminal-class*))
-        (message "no tmux session found."))))
-(define-key *root-map* (kbd "C-e") "emacs-in-tmux")
+(define-key *root-map* (kbd "C-e") "emacs")
 
 ;;;
 
