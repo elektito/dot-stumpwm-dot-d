@@ -9,7 +9,7 @@ computers. For example, on Ubuntu the Google Chrome executable is named
 `google-chrome` while on Arch Linux it's `google-chrome-stable`.
 
 These so-called system-local parameters defined at the top of the `init.lisp`
-files. They can be overridden in a file named `local=before.lisp`. For example,
+files. They can be overridden in a file named `local-before.lisp`. For example,
 if you want to change the terminal in use, you can put the following in your
 `local-before.lisp` file:
 
